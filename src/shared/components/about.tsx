@@ -3,7 +3,7 @@ import { motion, useAnimation, useViewportScroll, useTransform } from "framer-mo
 
 const photos = Array.from({ length: 46 }, (_, i) => ({
   id: i + 1,
-  path: `/src/assets/photo/film${i + 1}.jpg`
+  path: `/photo/film${i + 1}.jpg`
 }))
 
 export default function About() {
