@@ -208,6 +208,14 @@ export default function Portfolio() {
     <LazyMotion features={domAnimation}>
       <section className="bg-black py-20">
         <div className="container mx-auto px-4">
+          <motion.h2
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+            className="text-4xl font-bold mb-10 text-center bg-gradient-to-r from-blue-400 via-green-400 to-cyan-400 bg-clip-text text-transparent drop-shadow-lg"
+          >
+          Projects
+          </motion.h2>      
           <div className="mb-12 flex flex-wrap justify-center gap-4">
             {categories.map((category) => (
               <Button
