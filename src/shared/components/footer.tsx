@@ -46,7 +46,7 @@ export default function Footer() {
               <HiOutlineDocumentText className="w-5 h-5" />
             </a>
           </div>
-          <p className="text-sm text-gray-400">© {new Date().getFullYear()} hyelee's portfolio.</p>
+          <p className="text-sm text-gray-400">© Copyright by Hyelee</p>
         </div>
       </div>
     </footer>

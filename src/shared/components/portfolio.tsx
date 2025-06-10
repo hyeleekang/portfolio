@@ -40,17 +40,19 @@ const ProjectCard = memo(({ work, onSelect }: { work: ProjectDetails; onSelect: 
               {work.period}
             </p>
             <div className="flex gap-2">
+              {work.githubUrl && (
               <Button
-                onClick={(e) => {
-                  e.stopPropagation();
-                  window.open(work.githubUrl || "#", '_blank');
-                }}
-                variant="outline"
-                className="rounded-full w-10 h-10 flex items-center justify-center bg-white text-black hover:bg-gray-200 transition-colors"
-                title="Github"
-              >
-                <FiGithub className="w-5 h-5" />
-              </Button>
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    window.open(work.githubUrl || "#", '_blank');
+                  }}
+                  variant="outline"
+                  className="rounded-full w-10 h-10 flex items-center justify-center bg-white text-black hover:bg-gray-200 transition-colors"
+                  title="Github"
+                >
+                  <FiGithub className="w-5 h-5" />
+                </Button>
+              )}
               {work.demoUrl && (
                 <Button
                   onClick={(e) => {
@@ -143,7 +145,7 @@ const ProjectModal = memo(({ project, onClose }: { project: ProjectDetails; onCl
             </div>
 
             <div className="space-y-8">
-              <h3 className="mb-4 text-2xl font-semibold text-white">트러블 슈팅</h3>
+              <h3 className="mb-4 text-2xl font-semibold text-white">주요 기술 과제와 해결 방안</h3>
               {project.challenges.map((challenge, index) => (
                 <div key={index} className="rounded-lg bg-zinc-900 p-6">
                   <h4 className="text-xl font-semibold text-white">{challenge.title}</h4>
@@ -154,14 +156,16 @@ const ProjectModal = memo(({ project, onClose }: { project: ProjectDetails; onCl
             </div>
 
             <div className="mt-8 flex gap-4">
-              <Button
-                onClick={() => window.open(project.githubUrl || "#", '_blank')}
-                variant="outline"
-                className="rounded-full w-10 h-10 flex items-center justify-center bg-white text-black hover:bg-gray-200 transition-colors"
-                title="Github"
-              >
-                <FiGithub className="w-5 h-5" />
-              </Button>
+              {project.githubUrl && (
+                <Button
+                  onClick={() => window.open(project.githubUrl || "#", '_blank')}
+                  variant="outline"
+                  className="rounded-full w-10 h-10 flex items-center justify-center bg-white text-black hover:bg-gray-200 transition-colors"
+                  title="Github"
+                >
+                  <FiGithub className="w-5 h-5" />
+                </Button>
+              )}
               {project.demoUrl && (
                 <Button
                   onClick={() => window.open(project.demoUrl, '_blank')}

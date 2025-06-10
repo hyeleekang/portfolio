@@ -137,8 +137,6 @@ export default function Hero() {
             sequence={[
               '안녕하세요',
               800,
-              '안녕하세요',
-              800,
             ]}
             wrapper="h2"
             speed={50}
@@ -147,10 +145,10 @@ export default function Hero() {
             cursor={false}
           />
           <div className="mt-4 flex items-center gap-2">
-            <span className="text-2xl sm:text-3xl">저는</span>
+            <span className="text-2xl sm:text-3xl"></span>
             <TypeAnimation
               sequence={[
-                '소통왕',
+                '행복한',
                 1000,
                 '협업을 중시하는',
                 1000,
@@ -214,16 +212,16 @@ export default function Hero() {
                 1500,
                 'React',
                 500,
-                'React • TypeScript',
+                'React • Vite • JavaScript • TypeScript',
                 500,
-                'React • TypeScript • Next.js',
+                'React • Vite • JavaScript • TypeScript • Tailwind CSS',
                 500,
-                'React • TypeScript • Next.js • Node.js',
+                'React • Vite • JavaScript • TypeScript • Tailwind CSS • Docker',
                 2000,
               ]}
               wrapper="div"
               speed={50}
-              className="text-sm text-red-400/80 font-medium"
+              className="text-sm text-green-400/60 font-medium"
               repeat={Infinity}
               cursor={true}
             />
