@@ -189,7 +189,7 @@ export default function Portfolio() {
   const [selectedCategory, setSelectedCategory] = useState("all")
   const [selectedProject, setSelectedProject] = useState<ProjectDetails | null>(null)
 
-  const categories = useMemo(() => ["all", "AI Interface", "OCR System", "Public Data", "System Tool"], [])
+  const categories = useMemo(() => ["all", "AI Interface", "OCR System", "Public Data", "Personal Project"], [])
 
   const filteredWorks = useMemo(() => 
     projects.filter((work) => (selectedCategory === "all" ? true : work.category === selectedCategory)),

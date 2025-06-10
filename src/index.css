@@ -35,6 +35,9 @@
     --ring: 214 100% 50%;
 
     --radius: 0.5rem;
+
+    --font-noto-sans-kr: 'Noto Sans KR';
+    --font-inter: 'Inter';
   }
 
   .dark {

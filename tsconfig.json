@@ -25,7 +25,8 @@
       "@shared/*": ["src/shared/*"],
       "@constants/*": ["src/constants/*"],
       "@assets/*": ["src/assets/*"],
-      "@components/*": ["src/components/*"]
+      "@components/*": ["src/components/*"],
+      "@routes/*": ["src/routes/*"]
     }
   },
   "include": ["src"],

@@ -200,7 +200,7 @@ export const projects: ProjectDetails[] = [
       {
         title: "실시간 모니터링",
         description: "NIFI 프로세스의 실시간 상태를 모니터링하고 즉각적인 대응이 필요했습니다.",
-        solution: "WebSocket을 활용한 실시간 데이터 업데이트와 효율적인 상태 관리 시스템을 구축했습니다."
+        solution: "React Query를 활용한 효율적인 폴링 시스템과 Zustand를 통한 상태 관리 시스템을 구축했습니다."
       }
     ],
     features: [
@@ -216,18 +216,19 @@ export const projects: ProjectDetails[] = [
     title: "챗봇 서비스 리팩토링",
     category: "AI Interface",
     image: TEMP_IMAGES.CHATBOT,
-    description: "기존 HTML 기반 챗봇 서비스를 React + TypeScript 환경으로 리팩토링",
-    period: "2023.09 - 2023.11",
+    description: "기존 HTML 기반 챗봇 서비스를 React + TypeScript 환경으로 리팩토링하고, LLM 설정 기능을 점진적으로 확장",
+    period: "2023.09 - 2025.04",
     role: "프론트엔드 개발",
     company: "기술연구소",
     position: "주임",
     detailRole: [
-      "html 기반 챗봇 UI를 React 기반 SPA로 리팩토링 및 상태 관리 구조 설계",
-      "LLM 모델·프롬프트·RAG 설정 기능 구현 및 전역 상태 관리 적용",
-      "ky 및 fetch를 이용한 챗봇 API 연동 및 실시간 스트리밍 처리",
-      "Keycloak 기반 사용자 인증 및 권한 제어 로직 구현",
-      "Tailwind CSS 기반 반응형 UI 구성 및 레이아웃 개선",
-      "Feature 기반 구조 설계 및 공통 모듈/유틸리티 분리"
+      "기존 HTML 기반 챗봇 UI를 React 기반 SPA로 단계적 리팩토링",
+      "초기 단순 Q&A 기능에서 출발해, LLM 모델·프롬프트·RAG 설정 기능을 후속 추가",
+      "Zustand 및 React Query 기반 상태 관리 아키텍처 적용 및 모듈화",
+      "ky 및 fetch 기반 챗봇 API 연동 및 실시간 스트리밍 처리 구현",
+      "Keycloak 기반 사용자 인증 및 역할 기반 접근 제어 구현",
+      "Tailwind CSS 기반 반응형 UI 재설계 및 사용성 개선",
+      "Feature 기반 폴더 구조로 코드 분리 및 공통 유틸/모듈 설계"
     ],
     techStack: [
       "React",
@@ -243,16 +244,21 @@ export const projects: ProjectDetails[] = [
     challenges: [
       {
         title: "레거시 코드 마이그레이션",
-        description: "기존 HTML/jQuery 기반 코드를 모던 React 환경으로 전환해야 했습니다.",
-        solution: "점진적인 마이그레이션 전략과 컴포넌트 기반 아키텍처를 도입하여 안정적으로 전환했습니다."
+        description: "초기 HTML/jQuery 기반 챗봇 UI를 React SPA로 전환해야 했습니다.",
+        solution: "기능 단위로 컴포넌트화하고 상태 관리를 도입해 안정적으로 마이그레이션했습니다."
+      },
+      {
+        title: "LLM 설정 기능의 단계적 확장",
+        description: "프로젝트 초기에는 단순 대화 UI만 제공했으나, 2024년부터 모델 설정, 프롬프트 관리, RAG 기능 등 고도화 요구사항이 추가되었습니다.",
+        solution: "유연한 구조 설계를 기반으로 MCP, 모델/RAG 설정 UI 및 관리 기능을 점진적으로 통합했습니다."
       }
     ],
     features: [
       "모던 챗봇 인터페이스",
       "실시간 응답 처리",
       "LLM 설정 관리",
-      "사용자 인증"
+      "사용자 인증 및 권한 제어"
     ],
     githubUrl: "https://github.com/hyeleekang/ai-chatbot-frontend"
-  }
+  }  
 ] 
