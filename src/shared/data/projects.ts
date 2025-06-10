@@ -209,6 +209,7 @@ export const projects: ProjectDetails[] = [
       "프로세스 관리 및 제어",
       "에러 로그 분석"
     ],
+    githubUrl: "https://github.com/hyeleekang/datahub-nifi"
   },
   {
     id: 5,
