@@ -2,7 +2,7 @@ import { projects } from "@shared/data/projects";
 import type { ProjectDetails } from "@shared/types/projectInterface";
 import { Button, Card, CardContent } from "@shared/ui";
 import { AnimatePresence, domAnimation, LazyMotion, motion } from "framer-motion";
-import { memo, Suspense, useCallback, useMemo, useState } from "react";
+import { memo, Suspense, useCallback, useEffect, useMemo, useState } from "react";
 import { FiGithub } from "react-icons/fi";
 import { HiOutlineGlobeAlt } from "react-icons/hi";
 import { MdClose } from "react-icons/md";
@@ -189,6 +189,20 @@ export default function Portfolio() {
         () => projects.filter((work) => (selectedCategory === "all" ? true : work.category === selectedCategory)),
         [selectedCategory],
     );
+
+    // 모달이 열렸을 때 body 스크롤 방지
+    useEffect(() => {
+        if (selectedProject) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "unset";
+        }
+
+        // 컴포넌트 언마운트 시 스크롤 복원
+        return () => {
+            document.body.style.overflow = "unset";
+        };
+    }, [selectedProject]);
 
     const handleSelectProject = useCallback((project: ProjectDetails) => {
         setSelectedProject(project);
