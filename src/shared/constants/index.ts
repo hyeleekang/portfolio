@@ -1,1 +1,1 @@
-export * from '@shared/constants/routeConstants';
+export * from "@shared/constants/routeConstants";

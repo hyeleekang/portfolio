@@ -1,9 +1,8 @@
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
 
-import type { JSX } from 'react';
-import { Slide, ToastContainer } from 'react-toastify';
-
-import { Outlet } from 'react-router-dom';
+import type { JSX } from "react";
+import { Outlet } from "react-router-dom";
+import { Slide, ToastContainer } from "react-toastify";
 
 export const App = (): JSX.Element => {
     return (

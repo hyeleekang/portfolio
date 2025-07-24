@@ -1,7 +1,6 @@
-import { defineConfig, loadEnv } from 'vite';
-
-import path from 'path';
-import react from '@vitejs/plugin-react';
+import path from "node:path";
+import react from "@vitejs/plugin-react";
+import { defineConfig, loadEnv } from "vite";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
@@ -12,7 +11,7 @@ export default defineConfig(({ mode }) => {
         plugins: [
             react(),
             {
-                name: 'html-transform',
+                name: "html-transform",
                 transformIndexHtml(html) {
                     return html.replace(/<title>(.*?)<\/title>/, `<title>${env.VITE_APP_TITLE}</title>`);
                 },
@@ -21,24 +20,24 @@ export default defineConfig(({ mode }) => {
         resolve: {
             alias: [
                 {
-                    find: '@app',
-                    replacement: path.resolve(__dirname, 'src/app'),
+                    find: "@app",
+                    replacement: path.resolve(__dirname, "src/app"),
                 },
                 {
-                    find: '@assets',
-                    replacement: path.resolve(__dirname, 'src/assets'),
+                    find: "@assets",
+                    replacement: path.resolve(__dirname, "src/assets"),
                 },
                 {
-                    find: '@pages',
-                    replacement: path.resolve(__dirname, 'src/pages'),
+                    find: "@pages",
+                    replacement: path.resolve(__dirname, "src/pages"),
                 },
                 {
-                    find: '@routes',
-                    replacement: path.resolve(__dirname, 'src/routes'),
+                    find: "@routes",
+                    replacement: path.resolve(__dirname, "src/routes"),
                 },
                 {
-                    find: '@shared',
-                    replacement: path.resolve(__dirname, 'src/shared'),
+                    find: "@shared",
+                    replacement: path.resolve(__dirname, "src/shared"),
                 },
             ],
         },
