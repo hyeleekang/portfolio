@@ -3,127 +3,157 @@
 @tailwind utilities;
 
 @layer base {
-  :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    :root {
+        --background: 0 0% 100%;
+        --foreground: 222.2 84% 4.9%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+        --card: 0 0% 100%;
+        --card-foreground: 222.2 84% 4.9%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+        --popover: 0 0% 100%;
+        --popover-foreground: 222.2 84% 4.9%;
 
-    /* Blue primary color */
-    --primary: 214 100% 50%;
-    --primary-foreground: 0 0% 100%;
+        /* Blue primary color */
+        --primary: 214 100% 50%;
+        --primary-foreground: 0 0% 100%;
 
-    /* Soft secondary color */
-    --secondary: 210 20% 98%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+        /* Soft secondary color */
+        --secondary: 210 20% 98%;
+        --secondary-foreground: 222.2 47.4% 11.2%;
 
-    --muted: 210 20% 96%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+        --muted: 210 20% 96%;
+        --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 210 20% 92%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+        --accent: 210 20% 92%;
+        --accent-foreground: 222.2 47.4% 11.2%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 20% 98%;
+        --destructive: 0 84.2% 60.2%;
+        --destructive-foreground: 210 20% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 214 100% 50%;
+        --border: 214.3 31.8% 91.4%;
+        --input: 214.3 31.8% 91.4%;
+        --ring: 214 100% 50%;
 
-    --radius: 0.5rem;
+        --radius: 0.5rem;
 
-    --font-noto-sans-kr: 'Noto Sans KR';
-    --font-inter: 'Inter';
-  }
+        --font-noto-sans-kr: "Noto Sans KR";
+        --font-inter: "Inter";
+    }
 
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 20% 98%;
+    .dark {
+        --background: 222.2 84% 4.9%;
+        --foreground: 210 20% 98%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 20% 98%;
+        --card: 222.2 84% 4.9%;
+        --card-foreground: 210 20% 98%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 20% 98%;
+        --popover: 222.2 84% 4.9%;
+        --popover-foreground: 210 20% 98%;
 
-    /* Blue primary color in dark mode */
-    --primary: 214 100% 50%;
-    --primary-foreground: 0 0% 100%;
+        /* Blue primary color in dark mode */
+        --primary: 214 100% 50%;
+        --primary-foreground: 0 0% 100%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 20% 98%;
+        --secondary: 217.2 32.6% 17.5%;
+        --secondary-foreground: 210 20% 98%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+        --muted: 217.2 32.6% 17.5%;
+        --muted-foreground: 215 20.2% 65.1%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 20% 98%;
+        --accent: 217.2 32.6% 17.5%;
+        --accent-foreground: 210 20% 98%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 20% 98%;
+        --destructive: 0 62.8% 30.6%;
+        --destructive-foreground: 210 20% 98%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 214 100% 50%;
-  }
+        --border: 217.2 32.6% 17.5%;
+        --input: 217.2 32.6% 17.5%;
+        --ring: 214 100% 50%;
+    }
 }
 
 @layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
+    * {
+        @apply border-border;
+    }
+    body {
+        @apply bg-background text-foreground;
+    }
 
-  /* 개선된 타이포그래피 스타일 - 더 작고 세련되게 */
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    @apply font-noto font-medium tracking-tight;
-  }
+    /* 개선된 타이포그래피 스타일 - 더 작고 세련되게 */
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        @apply font-noto font-medium tracking-tight;
+    }
 
-  h1 {
-    @apply text-base;
-  }
+    h1 {
+        @apply text-base;
+    }
 
-  h2 {
-    @apply text-sm;
-  }
+    h2 {
+        @apply text-sm;
+    }
 
-  h3 {
-    @apply text-sm;
-  }
+    h3 {
+        @apply text-sm;
+    }
 
-  p,
-  span,
-  div,
-  button,
-  input,
-  textarea,
-  select {
-    @apply font-noto text-sm;
-  }
+    p,
+    span,
+    div,
+    button,
+    input,
+    textarea,
+    select {
+        @apply font-noto text-sm;
+    }
 }
 
 /* 추가 타이포그래피 유틸리티 클래스 */
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+    .text-balance {
+        text-wrap: balance;
+    }
 
-  .font-noto {
-    font-family: var(--font-noto-sans-kr), sans-serif;
-  }
+    .font-noto {
+        font-family: var(--font-noto-sans-kr), sans-serif;
+    }
 
-  .font-inter {
-    font-family: var(--font-inter), sans-serif;
-  }
+    .font-inter {
+        font-family: var(--font-inter), sans-serif;
+    }
+}
+
+/* 스크롤바 스타일 변경 */
+
+::-webkit-scrollbar {
+    width: 2px;
+    height: 2px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: transparent; /* 완전 투명 */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(156, 163, 175, 0.25);
+    border-radius: 6px;
+    border: none;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(156, 163, 175, 0.4); /* 호버시 더 진하게 */
+}
+
+/* 스크롤바 화살표 버튼 숨기기 */
+::-webkit-scrollbar-button {
+    display: none;
+}
+
+::-webkit-scrollbar-corner {
+    background-color: transparent;
 }
