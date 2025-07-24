@@ -1,26 +1,11 @@
-import { createBrowserRouter, Navigate } from 'react-router-dom';
-
-import { ROUTES } from '@shared/constants';
-
-
-import { App } from '@app/App';
-import MainPage from '@pages/mainPage';
+import { App } from "@app/App";
+import MainPage from "@pages/mainPage";
+import { ROUTES } from "@shared/constants";
+import { createBrowserRouter } from "react-router-dom";
 
 export const routes = createBrowserRouter([
     {
         element: <App />,
-        children: [
-            { index: true, path: ROUTES.root, element: <Navigate to={ROUTES.home} replace /> },
-            {
-                handle: 'MainPage',
-                path: ROUTES.home,
-                children: [{ index: true, element: <MainPage /> }],
-            }
-        ],
+        children: [{ index: true, path: ROUTES.root, element: <MainPage /> }],
     },
-],
-    {
-        /** base url 설정 */
-        basename: '/',
-    },
-);
+]);
