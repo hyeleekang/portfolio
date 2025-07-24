@@ -1,0 +1,54 @@
+{
+    // Biome 설정 스키마 - 자동완성 및 유효성 검사용
+    "$schema": "https://biomejs.dev/schemas/biome.json",
+
+    // 검사에서 제외할 파일/디렉터리
+    "files": {
+        "ignoreUnknown": true // 확장자 모를 경우 무시
+    },
+
+    // 코드 자동 포매팅 설정
+    "formatter": {
+        "enabled": true, // 포맷터 전체 활성화
+        "indentStyle": "space", // 들여쓰기 스타일: space
+        "indentWidth": 4, // 들여쓰기 너비: 4칸
+        "lineEnding": "lf", // 줄바꿈 문자: LF (유닉스)
+        "lineWidth": 120, // 한 줄 최대 길이
+        "attributePosition": "auto", // JSX 속성 자동 줄바꿈 결정
+        "bracketSameLine": false, // JSX 종료 태그 줄바꿈 여부
+        "bracketSpacing": true, // 객체 중괄호 양쪽 공백 유지
+        "expand": "auto", // 줄바꿈 스타일 자동 결정
+        "useEditorconfig": true // .editorconfig 설정과 연동
+    },
+
+    // 코드 린터 설정
+    "linter": {
+        "enabled": true, // 린터 전체 활성화
+        "rules": {
+            "recommended": true, // Biome 기본 권장 규칙 활성화
+            "a11y": {
+                "useFocusableInteractive": "off"
+            },
+            "nursery": {
+                // Tailwind CSS 클래스 정렬
+                "useSortedClasses": {
+                    "level": "warn",
+                    "options": {
+                        "attributes": ["class", "className", "classList"],
+                        "functions": ["clsx", "cn", "tw", "cva"]
+                    }
+                }
+            }
+        }
+    },
+
+    // 자동 import 정리 (VSCode 저장 시 동작)
+    "assist": {
+        "enabled": true,
+        "actions": {
+            "source": {
+                "organizeImports": "on" // 사용하지 않는 import 제거 및 정렬
+            }
+        }
+    }
+}
