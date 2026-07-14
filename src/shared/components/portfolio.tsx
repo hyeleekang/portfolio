@@ -1,6 +1,7 @@
 import { projects } from "@shared/data/projects";
+import { cn } from "@shared/lib";
 import type { ProjectDetails } from "@shared/types/projectInterface";
-import { Button, Card, CardContent } from "@shared/ui";
+import { Button, Card, CardContent, Tabs, TabsContent, TabsList, TabsTrigger } from "@shared/ui";
 import { AnimatePresence, domAnimation, LazyMotion, motion } from "framer-motion";
 import { memo, Suspense, useCallback, useEffect, useMemo, useState } from "react";
 import { FiGithub } from "react-icons/fi";
@@ -8,17 +9,55 @@ import { HiOutlineGlobeAlt } from "react-icons/hi";
 import { MdClose } from "react-icons/md";
 
 // 프로젝트 이미지 컴포넌트
-const ProjectImage = memo(({ src, alt }: { src: string; alt: string }) => (
-    <img
-        src={src}
-        alt={alt}
-        className="w-full transition-transform duration-300 group-hover:scale-105"
-        loading="lazy"
-        decoding="async"
-    />
-));
+const ProjectImage = memo(
+    ({ src, alt, className }: { src: string; alt: string; className?: string }) => (
+        <img
+            src={src}
+            alt={alt}
+            className={cn("w-full transition-transform duration-300 group-hover:scale-105", className)}
+            loading="lazy"
+            decoding="async"
+        />
+    ),
+);
 
 ProjectImage.displayName = "ProjectImage";
+
+// 프로젝트 이미지 탭 컴포넌트
+const ProjectImageTabs = memo(({ images }: { images: NonNullable<ProjectDetails["images"]> }) => {
+    const getTabValue = (item: NonNullable<ProjectDetails["images"]>[number]) => item.tabLabel ?? item.label;
+
+    return (
+        <Tabs defaultValue={getTabValue(images[0])} className="mb-6">
+            <TabsList className="mb-4 bg-zinc-800">
+                {images.map((item) => (
+                    <TabsTrigger
+                        key={getTabValue(item)}
+                        value={getTabValue(item)}
+                        className="text-gray-400 data-[state=active]:bg-zinc-700 data-[state=active]:text-white"
+                    >
+                        {item.tabLabel ?? item.label}
+                    </TabsTrigger>
+                ))}
+            </TabsList>
+            {images.map((item) => (
+                <TabsContent key={getTabValue(item)} value={getTabValue(item)} className="mt-0">
+                    <div className="flex justify-center overflow-hidden rounded-lg bg-zinc-800/50 py-4">
+                        <img
+                            src={item.src}
+                            alt={item.label}
+                            className={cn("w-full", item.imageClassName)}
+                            loading="lazy"
+                            decoding="async"
+                        />
+                    </div>
+                </TabsContent>
+            ))}
+        </Tabs>
+    );
+});
+
+ProjectImageTabs.displayName = "ProjectImageTabs";
 
 // 프로젝트 카드 컴포넌트
 const ProjectCard = memo(
@@ -104,7 +143,11 @@ const ProjectModal = memo(({ project, onClose }: { project: ProjectDetails; onCl
                             <div className="text-right"></div>
                         </div>
                         <p className="mb-6 text-gray-400 text-xl">{project.description}</p>
-                        <ProjectImage src={project.image} alt={project.title} />
+                        {project.images ? (
+                            <ProjectImageTabs key={project.id} images={project.images} />
+                        ) : (
+                            <ProjectImage src={project.image} alt={project.title} />
+                        )}
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
@@ -183,7 +226,10 @@ export default function Portfolio() {
     const [selectedCategory, setSelectedCategory] = useState("all");
     const [selectedProject, setSelectedProject] = useState<ProjectDetails | null>(null);
 
-    const categories = useMemo(() => ["all", "AI Interface", "OCR System", "Public Data", "Personal Project"], []);
+    const categories = useMemo(
+        () => ["all", "Smart City", "AI Interface", "OCR System", "Public Data", "Personal Project"],
+        [],
+    );
 
     const filteredWorks = useMemo(
         () => projects.filter((work) => (selectedCategory === "all" ? true : work.category === selectedCategory)),

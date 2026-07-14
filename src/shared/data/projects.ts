@@ -7,9 +7,80 @@ const TEMP_IMAGES = {
     GGDATA: "/ggdataChatbot.gif",
     LLMOPS: "/llmops.gif",
     CHATBOT: "/worktroChatbot.gif",
+    HAPCHEON_KIOSK: "/kiosk.gif",
+    HAPCHEON_PLATFORM: "/cityone.gif",
 } as const;
 
 export const projects: ProjectDetails[] = [
+    {
+        id: 6,
+        title: "합천 스마트시티 확산솔루션",
+        category: "Smart City",
+        image: TEMP_IMAGES.HAPCHEON_PLATFORM,
+        images: [
+            { src: TEMP_IMAGES.HAPCHEON_PLATFORM, label: "스마트시티 통합 플랫폼", tabLabel: "통합플랫폼" },
+            {
+                src: TEMP_IMAGES.HAPCHEON_KIOSK,
+                label: "베리어프리 문화관광 키오스크",
+                tabLabel: "키오스크",
+                imageClassName: "mx-auto w-[42%] max-w-xs object-contain",
+            },
+        ],
+        description:
+            "베리어프리 문화관광 키오스크, 통합 플랫폼, 대민 주차·결제, CMS, DID 송출 등 합천군 스마트시티 확산솔루션 프론트엔드 개발",
+        period: "2025.11 - 2026.07",
+        role: "프론트엔드 PL",
+        company: "시티원",
+        position: "주임",
+        detailRole: [
+            "PL로서 팀을 리딩하며 PM·디자이너·백엔드 간 요구사항 정합성 확보 및 개발 일정 조율 주도 (팀 구성: FE 2, BE 1, 디자이너)",
+            "대민 주차 신청·결제 페이지, CMS 콘텐츠 관리 화면, DID 송출 화면 등 다중 서비스를 아우르는 화면 기획 및 개발",
+            "주민 대상 주차장 신청·조회 UI와 SmartroPay PG 연동으로 결제창 호출 흐름 구성, 이메일 인증 기반 조회 프로세스 개선",
+            "문화관광 키오스크에 고대비 모드·저화면 모드 등 베리어프리 접근성 UI를 적용하고, 한/영/중/일 다국어 지원 구현",
+            "디바이스 ID 기반 DID 송출 화면 구현으로 콘텐츠 재생 흐름과 운영 편의성 지원",
+        ],
+        techStack: [
+            "React",
+            "TypeScript",
+            "Vite",
+            "React Router",
+            "Zustand",
+            "React Query",
+            "Tailwind CSS",
+            "OpenLayers",
+            "HLS",
+        ],
+        challenges: [
+            {
+                title: "다중 서비스 요구사항 정합",
+                description:
+                    "키오스크, 통합플랫폼, 주차·결제, CMS, DID 등 이해관계자별 요구가 다른 다중 서비스를 동시에 개발해야 했습니다.",
+                solution:
+                    "PL로서 PM·디자이너·백엔드 간 요구사항 정렬을 주도하고, 화면별 개발 일정을 조율하여 병렬 개발이 가능하도록 프로세스를 구성했습니다.",
+            },
+            {
+                title: "베리어프리 접근성 UI",
+                description:
+                    "문화관광 키오스크에서 시각·신체 장애 사용자를 위한 고대비·저화면 모드 등 접근성 요구를 충족해야 했습니다.",
+                solution:
+                    "고대비/저화면 전용 레이아웃과 컴포넌트 변형을 구현하고, 한/영/중/일 다국어 지원을 함께 적용했습니다.",
+            },
+            {
+                title: "PG 결제 및 DID 송출 연동",
+                description:
+                    "주차 신청·결제 흐름에서 SmartroPay PG 연동과 디바이스별 DID 콘텐츠 재생 제어가 필요했습니다.",
+                solution:
+                    "SmartroPay 결제창 호출 흐름과 이메일 인증 기반 조회 프로세스를 구성하고, 디바이스 ID 기반 DID 송출 화면으로 운영 편의성을 확보했습니다.",
+            },
+        ],
+        features: [
+            "베리어프리 문화관광 키오스크 (고대비·저화면·다국어)",
+            "스마트시티 통합 플랫폼 대시보드",
+            "대민 주차 신청·결제 (SmartroPay PG 연동)",
+            "CMS 콘텐츠 관리",
+            "DID 디지털 사이니지 송출",
+        ],
+    },
     {
         id: 1,
         title: "LLMOps 솔루션",

@@ -9,6 +9,7 @@ export interface ProjectDetails {
     title: string;
     category: string;
     image: string;
+    images?: { src: string; label: string; tabLabel?: string; imageClassName?: string }[];
     description: string;
     period: string;
     role: string;
